@@ -1,0 +1,13 @@
+.wrapper {
+    display: grid;
+    grid-template-columns:
+        1fr min(68ch, 100%) 1fr;
+    height: 100%;
+}
+
+.middle {
+    background-color: whitesmoke;
+    padding-left: 3ch;
+    padding-right: 3ch;
+    grid-column: 2;
+}
