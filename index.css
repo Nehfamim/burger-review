@@ -34,3 +34,7 @@ body {
 .content ol {
     white-space: normal;
 }
+
+a {
+    color: tomato;
+}
