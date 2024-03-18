@@ -1,0 +1,38 @@
+body {
+    font-family: Arial;
+    direction: rtl;
+    font-size: 1.25em;
+    padding: 0;
+    margin: 0;
+    color: white;
+    text-shadow: 0.1em 0.1em black;
+    background-color: black;
+}
+
+.interior {
+    padding: 3em;
+}
+
+.bg-image {
+    background-image: url("/assets/index-background.avif");
+    background-size: cover;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -5;
+    filter: blur(8px);
+    box-shadow: 0 0 120em black inset;
+}
+
+.borgar {
+    float: left;
+    height: 70vh;
+}
+
+.content {
+    white-space: pre-line;
+}
+
+.content ol {
+    white-space: normal;
+}
