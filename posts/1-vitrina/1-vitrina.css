@@ -13,6 +13,7 @@
     height: 9em;
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
+    margin: 0 2em;
 }
 
 .preamble q {
@@ -31,4 +32,15 @@
 .preamble .quoted {
     font-weight: bold;
     margin: 1em 0;
+}
+
+p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.liron-likes-cuphead {
+    font-weight: bold;
+    font-style: italic;
 }
