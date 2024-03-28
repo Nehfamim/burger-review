@@ -8,3 +8,27 @@
     transform: scale(1.05);
     z-index: -5;
 }
+
+.preamble {
+    height: 9em;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+}
+
+.preamble q {
+    white-space: pre-line;
+    font-style: italic;
+}
+
+.preamble q::before, .preamble q::after { content: "" }
+
+.preamble img {
+    height: 100%;
+    width: auto;
+    float: left;
+}
+
+.preamble .quoted {
+    font-weight: bold;
+    margin: 1em 0;
+}
