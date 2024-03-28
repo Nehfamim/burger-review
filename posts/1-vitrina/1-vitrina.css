@@ -40,7 +40,11 @@ p {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.liron-likes-cuphead {
+.liron-likes-cuphead, .name-call {
     font-weight: bold;
     font-style: italic;
+}
+
+.name-call::before, .name-call::after {
+    content: "\""
 }
