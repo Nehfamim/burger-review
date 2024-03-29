@@ -48,3 +48,15 @@ p {
 .name-call::before, .name-call::after {
     content: "\""
 }
+
+.black-sesame {
+    float: left;
+    width: 12em;
+    margin-right: 0.5em;
+}
+
+.fries {
+    float: right;
+    width: 10em;
+    margin-left: 0.5em;
+}
