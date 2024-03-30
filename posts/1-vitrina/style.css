@@ -1,9 +1,5 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 .background {
-    object-fit: fill;
+    object-fit: cover;
     filter: blur(8px);
     margin: 0;
     position: fixed;
