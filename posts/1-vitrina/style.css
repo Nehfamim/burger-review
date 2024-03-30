@@ -85,6 +85,7 @@ p {
     float: left;
     width: 8em;
     margin-right: 0.5em;
+    margin-top: 0.8em;
 }
 
 .final-score {
@@ -98,4 +99,30 @@ p {
 
 .seymour {
     margin: auto;
+}
+
+.smooth-animation {
+    position: relative;
+    height: 3em;
+}
+
+.animation-button {
+    font-size: 0.8em;
+    margin-bottom: 1em;
+}
+
+.animation-square {
+    width: 3em;
+    height: 3em;
+    background-color: black;
+    transition-property: left, rotate;
+    transition-duration: 2s;
+    position: absolute;
+    border-radius: 0.2em;
+    left: 0;
+}
+
+.animation-square[right] {
+    left: calc(100% - 3em);
+    rotate: 360deg;
 }
