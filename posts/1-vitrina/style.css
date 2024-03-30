@@ -1,3 +1,7 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .background {
     object-fit: fill;
     filter: blur(8px);
@@ -11,7 +15,6 @@
 
 .preamble {
     height: 9em;
-    font-family: Arial, Helvetica, sans-serif;
     position: relative;
     margin: 0 2em;
 }
@@ -37,7 +40,7 @@
 p {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: inherit;
 }
 
 .liron-likes-cuphead, .name-call {
@@ -62,8 +65,12 @@ p {
 }
 
 .smooth {
-    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+}
+
+@font-face {
+    font-family: shluk;
+    src: url("/assets/1/shluk.woff2");
 }
 
 .smooth h2 {
@@ -74,13 +81,21 @@ p {
     line-height: 1.2em;
 }
 
-@font-face {
-    font-family: shluk;
-    src: url("/assets/1/shluk.woff2");
-}
-
 .gluten-free {
     float: left;
     width: 8em;
     margin-right: 0.5em;
+}
+
+.final-score {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.final-score h2 {
+    font-family: inherit;
+}
+
+.seymour {
+    margin: auto;
 }
