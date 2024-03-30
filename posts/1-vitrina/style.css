@@ -12,7 +12,7 @@
 .preamble {
     height: 9em;
     position: relative;
-    margin: 0 2em;
+    margin: 0 max(min(2em, calc(100% - 40ch)), 0em);
 }
 
 .preamble q {
@@ -26,6 +26,10 @@
     height: 100%;
     width: auto;
     float: left;
+}
+
+img {
+    width: 100%;
 }
 
 .preamble .quoted {
@@ -51,12 +55,14 @@ p {
 .black-sesame {
     float: left;
     width: 12em;
+    max-width: 40%;
     margin-right: 0.5em;
 }
 
 .fries {
     float: right;
     width: 10em;
+    max-width: 40%;
     margin-left: 0.5em;
 }
 
@@ -80,8 +86,8 @@ p {
 .gluten-free {
     float: left;
     width: 8em;
-    margin-right: 0.5em;
-    margin-top: 0.8em;
+    position: relative;
+    margin-right: 0.4em;
 }
 
 .final-score {
@@ -95,6 +101,7 @@ p {
 
 .seymour {
     margin: auto;
+    width: 25em;
 }
 
 .smooth-animation {

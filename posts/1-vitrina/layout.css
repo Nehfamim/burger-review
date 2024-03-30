@@ -1,21 +1,22 @@
 .wrapper {
     display: grid;
     grid-template-columns:
-        1fr min(68ch, 100%) 1fr;
-    padding-top: 8px;
-    padding-bottom: 8px;
+        1fr min(68ch, 90%) 1fr;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
 }
 
 .middle {
     background-color: whitesmoke;
     border-radius: 20px;
     grid-column: 2;
-    padding-top: 8px;
-    padding-bottom: 16px;
+    padding-top: 0.5em;
+    padding-bottom: 1em;
     padding-inline: 3ch;
 }
 
 body {
     direction: rtl;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: max(2vh, 16px);
 }
