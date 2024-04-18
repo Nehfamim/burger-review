@@ -3,10 +3,10 @@
 name: Deploy Staging
 
 on:
-  pull_request:
+  push:
     branches: [ staging ]
 jobs:
-  deply-staging:
+  deploy-staging:
     runs-on: ubuntu-latest
     container: pandoc/latex
     steps:
