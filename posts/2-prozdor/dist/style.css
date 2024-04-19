@@ -70,7 +70,7 @@
     }
 
     .intro-guest h1 {
-        font-size: 38vw;
+        font-size: min(33vw, var(--r-heading1-size));
     }
     
     .intro-guest h2 {
