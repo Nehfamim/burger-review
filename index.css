@@ -19,18 +19,43 @@ body {
     height: 100%;
     z-index: -5;
     filter: blur(8px);
+    object-fit: cover;
+    transform: scale(1.05);
     box-shadow: 0 0 120em black inset;
 }
 
 .borgar {
-    float: left;
     height: 70vh;
 }
 
 .content {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.content div {
     white-space: pre-line;
 }
 
-.content ol {
+.content div ol {
     white-space: normal;
+}
+
+@media screen AND (orientation: portrait) {
+    .borgar {
+        width: 80vw;
+        height: auto;
+        margin: auto;
+        margin-top: 3em;
+    }
+
+    .content {
+        grid-template-columns: none;
+        grid-template-rows: auto auto;
+    }
+    
+    h1 {
+        font-size: 6vw;
+        text-align: center;
+    }
 }
