@@ -1,0 +1,31 @@
+img.locke {
+    height: 8em;
+    margin-bottom: 0;
+}
+
+q {
+    white-space: pre-line;
+    font-size: 0.8em;
+    text-align: left;
+}
+
+q::before, q::after {
+    content: ""
+}
+
+.quoted {
+    margin-top: 0.5em;
+}
+
+.intro-guest {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    text-align: right;
+}
+
+.guest-image {
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
+}
