@@ -1,0 +1,34 @@
+# .github/workflows/pr-preview.yml
+# Deploys PR previews by pushing them to a sub-folder on the gh-pages branch.
+name: Deploy PR previews
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+concurrency: preview-${{ github.ref }}
+
+jobs:
+  deploy-preview:
+    permissions: write-all
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Deploy preview
+        uses: rossjrw/pr-preview-action@v1
+        if: contains(fromJson('["opened", "reopened", "synchronize"]'), github.event.action)
+        with:
+          preview-branch: gh-pages
+          source-dir: .
+      - name: Delete merged PR previews
+        uses: rossjrw/pr-preview-action@v1
+        if: github.event.action == 'closed' && !github.event.pull_request.merged
+        with:
+          source-dir: .
+          action: remove
