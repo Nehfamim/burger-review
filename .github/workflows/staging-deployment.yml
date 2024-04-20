@@ -1,3 +1,4 @@
+# .github/workflows/staging-deployment.yml
 # Workflow that pushes the repo to a staging repo, when a commit is pushed to the staging branch.
 # The other repo is used for a Github-Pages staging environemnt.
 
