@@ -1,0 +1,33 @@
+# .github/workflows/main-to-gh-pages.yml
+# Pushes main to gh-pages [Github pages is deployed from gh-pages]
+
+name: Copy main to gh-pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  push-to-gh-pages:
+    permissions: write-all
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+            submodules: recursive
+      - name: Copy
+        env:
+            SRC_FOLDER_PATH: '.'
+            TARGET_BRANCH: 'gh-pages'
+        run: |
+            files=$(find $SRC_FOLDER_PATH -type f -not -path "./.git/*") # get the file list
+            echo "files: $files"
+            git config --global user.name 'GitHub Action'
+            git config --global user.email 'action@github.com'
+            git fetch                         # fetch branches
+            git checkout $TARGET_BRANCH       # checkout to your branch
+            git checkout ${GITHUB_REF##*/} -- $files # copy files from the source branch
+            git add -A
+            git diff-index --quiet HEAD ||  git commit -am "Deoply files from $GITHUB_REF"  # commit to the repository (ignore if no modification)
+            git push origin $TARGET_BRANCH # push to remote branch
