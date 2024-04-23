@@ -1,0 +1,31 @@
+# .github/workflows/staging-deployment.yml
+# Workflow that pushes the repo to a staging repo, when a commit is pushed to the staging branch.
+# The other repo is used for a Github-Pages staging environemnt.
+
+name: Deploy Staging
+
+on:
+  push:
+    branches: [ staging ]
+jobs:
+  deploy-staging:
+    runs-on: ubuntu-latest
+    container: pandoc/latex
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install mustache (to update the date)
+        run:  apk add ruby && gem install mustache
+      - name: Pushes to another repository
+        id: push_directory
+        uses: cpina/github-action-push-to-another-repository@target-branch
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: .
+          destination-github-username: 'Nehfamim'
+          destination-repository-name: 'burger-review-staging'
+          user-email: staging-ci@nehfamim.org
+          commit-message: $GITHUB_REF
+          target-branch: main
+      - name: Test get variable exported by push-to-another-repository
+        run: echo $DESTINATION_CLONED_DIRECTORY
