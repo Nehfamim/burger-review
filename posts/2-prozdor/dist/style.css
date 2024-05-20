@@ -63,6 +63,15 @@
     margin-right: -4em;
 }
 
+.menu h1 {
+    font-size: 2em;
+    margin-bottom: 0;
+}
+
+.menu img {
+    height: 90vh;
+}
+
 @media screen and (orientation: portrait) {
     .locke {
         font-size: 1.5em;
@@ -97,5 +106,9 @@
 
     .arrival li {
         margin-right: 0;
+    }
+
+    .menu h1 {
+        font-size: 5em;
     }
 }
