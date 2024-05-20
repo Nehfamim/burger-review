@@ -1,3 +1,7 @@
+li {
+    text-align: right;
+}
+
 .locke img {
     height: 8em;
     margin-bottom: 0;
@@ -59,7 +63,6 @@
 }
 
 .arrival li {
-    text-align: right;
     margin-right: -4em;
 }
 
@@ -70,6 +73,47 @@
 
 .menu img {
     height: 90vh;
+}
+
+.review {
+    display: grid;
+    direction: rtl;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+.review h1 {
+    font-size: 1.7em;
+    grid-column: 1 / 3;
+}
+
+.review img {
+    grid-column: 2;
+    margin: 0;
+}
+
+.review ul {
+    grid-column: 1;
+    grid-row: 2 / 4;
+    font-size: 0.8em;
+}
+
+.review .btw {
+    display: grid;
+    grid-column: 1;
+    grid-row: 3;
+    grid-template-columns: auto auto;
+    font-size: 0.6em;
+    padding-top: 1em;
+}
+
+.review .btw .arrow {
+    font-size: 3em;
+}
+
+.review .btw .arrow-mobile {
+    display: none
 }
 
 @media screen and (orientation: portrait) {
@@ -110,5 +154,33 @@
 
     .menu h1 {
         font-size: 5em;
+    }
+
+    .review {
+        display: block;
+    }
+
+    .review ul {
+        font-size: 1.3em;
+        margin: 1em 0;
+    }
+
+    .review .btw {
+        font-size: 1.3em;
+        display: block;
+        padding: 0;
+    }
+
+    .review .btw .arrow {
+        display: none;
+    }
+
+    .review .btw .arrow-mobile {
+        display: block;
+        font-size: 1.8em;
+    }
+
+    .review .btw br {
+        display: none;
     }
 }
