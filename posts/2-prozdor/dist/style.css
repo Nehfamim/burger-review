@@ -54,6 +54,15 @@
     font-size: 1.2em;
 }
 
+.arrival {
+    direction: rtl;
+}
+
+.arrival li {
+    text-align: right;
+    margin-right: -4em;
+}
+
 @media screen and (orientation: portrait) {
     .locke {
         font-size: 1.5em;
@@ -76,5 +85,17 @@
     .intro-guest h2 {
         text-align: center;
         margin-bottom: 0.3em;
+    }
+    
+    .arrival {
+        font-size: 1.6em;
+    }
+
+    .arrival h1 {
+        font-size: 3em;
+    }
+
+    .arrival li {
+        margin-right: 0;
     }
 }
