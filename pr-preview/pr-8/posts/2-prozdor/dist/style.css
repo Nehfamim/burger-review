@@ -1,0 +1,80 @@
+.locke img {
+    height: 8em;
+    margin-bottom: 0;
+}
+
+.locke q {
+    white-space: pre-line;
+    font-size: 0.8em;
+    text-align: left;
+}
+
+.locke q::before, .locke q::after {
+    content: ""
+}
+
+.locke .quoted {
+    margin-top: 0.5em;
+}
+
+.intro-guest {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    text-align: right;
+    direction: rtl;
+}
+
+.intro-guest h1 {
+    grid-column: 1 / 3;
+    text-align: center;
+}
+
+.intro-guest h2 {
+    margin-bottom: 0;
+}
+
+.intro-guest ul {
+    text-align: inherit;
+    display: block;
+    margin: 0;
+    margin-inline-start: 1em;
+}
+
+.intro-guest img {
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
+}
+
+.intro-guest q {
+    display: block;
+    margin-block-start: 1.0em;
+    font-size: 1.2em;
+}
+
+@media screen and (orientation: portrait) {
+    .locke {
+        font-size: 1.5em;
+    }
+
+    .locke img {
+        width: 70%;
+        height: auto;
+    }
+
+    .intro-guest {
+        font-size: 1.3em;
+        display: initial;
+    }
+
+    .intro-guest h1 {
+        font-size: min(33vw, var(--r-heading1-size));
+    }
+    
+    .intro-guest h2 {
+        text-align: center;
+        margin-bottom: 0.3em;
+    }
+}
