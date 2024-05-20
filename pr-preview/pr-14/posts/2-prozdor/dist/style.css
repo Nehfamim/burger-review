@@ -1,0 +1,186 @@
+li {
+    text-align: right;
+}
+
+.locke img {
+    height: 8em;
+    margin-bottom: 0;
+}
+
+.locke q {
+    white-space: pre-line;
+    font-size: 0.8em;
+    text-align: left;
+}
+
+.locke q::before, .locke q::after {
+    content: ""
+}
+
+.locke .quoted {
+    margin-top: 0.5em;
+}
+
+.intro-guest {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    text-align: right;
+    direction: rtl;
+}
+
+.intro-guest h1 {
+    grid-column: 1 / 3;
+    text-align: center;
+}
+
+.intro-guest h2 {
+    margin-bottom: 0;
+}
+
+.intro-guest ul {
+    text-align: inherit;
+    display: block;
+    margin: 0;
+    margin-inline-start: 1em;
+}
+
+.intro-guest img {
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
+}
+
+.intro-guest q {
+    display: block;
+    margin-block-start: 1.0em;
+    font-size: 1.2em;
+}
+
+.arrival {
+    direction: rtl;
+}
+
+.arrival li {
+    margin-right: -4em;
+}
+
+.menu h1 {
+    font-size: 2em;
+    margin-bottom: 0;
+}
+
+.menu img {
+    height: 90vh;
+}
+
+.review {
+    display: grid;
+    direction: rtl;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+.review h1 {
+    font-size: 1.7em;
+    grid-column: 1 / 3;
+}
+
+.review img {
+    grid-column: 2;
+    margin: 0;
+}
+
+.review ul {
+    grid-column: 1;
+    grid-row: 2 / 4;
+    font-size: 0.8em;
+}
+
+.review .btw {
+    display: grid;
+    grid-column: 1;
+    grid-row: 3;
+    grid-template-columns: auto auto;
+    font-size: 0.6em;
+    padding-top: 1em;
+}
+
+.review .btw .arrow {
+    font-size: 3em;
+}
+
+.review .btw .arrow-mobile {
+    display: none
+}
+
+@media screen and (orientation: portrait) {
+    .locke {
+        font-size: 1.5em;
+    }
+
+    .locke img {
+        width: 70%;
+        height: auto;
+    }
+
+    .intro-guest {
+        font-size: 1.3em;
+        display: initial;
+    }
+
+    .intro-guest h1 {
+        font-size: min(33vw, var(--r-heading1-size));
+    }
+    
+    .intro-guest h2 {
+        text-align: center;
+        margin-bottom: 0.3em;
+    }
+    
+    .arrival {
+        font-size: 1.6em;
+    }
+
+    .arrival h1 {
+        font-size: 3em;
+    }
+
+    .arrival li {
+        margin-right: 0;
+    }
+
+    .menu h1 {
+        font-size: 5em;
+    }
+
+    .review {
+        display: block;
+    }
+
+    .review ul {
+        font-size: 1.3em;
+        margin: 1em 0;
+    }
+
+    .review .btw {
+        font-size: 1.3em;
+        display: block;
+        padding: 0;
+    }
+
+    .review .btw .arrow {
+        display: none;
+    }
+
+    .review .btw .arrow-mobile {
+        display: block;
+        font-size: 1.8em;
+    }
+
+    .review .btw br {
+        display: none;
+    }
+}
