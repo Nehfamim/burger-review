@@ -116,6 +116,73 @@ li {
     display: none
 }
 
+.heat-rating {
+    background-image: url(../assets/heat-score.png);
+    margin-top: 0.6em;
+    width: 500px;
+    height: 250px;
+    position: relative;
+}
+
+.heat-rating div {
+    position: absolute;
+    bottom: -0.8em;
+    width: 50%;
+}
+
+.heat-rating :nth-child(-n+3) {
+    left: 0.4em;
+    transform-origin: right;
+}
+
+.heat-rating :nth-child(-n+6):nth-child(n+4) {
+    right: 0.4em;
+    text-align: right;
+    transform-origin: left;
+}
+
+.heat-rating :nth-child(1) {
+    transform: rotate(15deg);
+}
+
+.heat-rating :nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.heat-rating :nth-child(3) {
+    transform: rotate(75deg);
+}
+
+.heat-rating :nth-child(4) {
+    transform: rotate(-75deg);
+}
+
+.heat-rating :nth-child(5) {
+    transform: rotate(-45deg);
+}
+
+.heat-rating :nth-child(6) {
+    transform: rotate(-15deg);
+    font-size: 0.8em;
+}
+
+.heat-rating img {
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+    transform-origin: bottom;
+}
+
+.heat-rating .fragment.arrow {
+    transform: rotate(-89.6deg);
+}
+
+.heat-rating .fragment.arrow.visible {
+    transform: rotate(-25.6deg);
+}
+
 @media screen and (orientation: portrait) {
     .locke {
         font-size: 1.5em;
@@ -182,5 +249,12 @@ li {
 
     .review .btw br {
         display: none;
+    }
+
+    .heat-rating {
+        transform: scale(1.5);
+        font-size: 0.6em;
+        margin-top: 3.3em;
+        margin-bottom: 3.3em;
     }
 }
