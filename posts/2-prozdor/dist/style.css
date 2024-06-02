@@ -75,6 +75,43 @@ li {
     height: 90vh;
 }
 
+.starters {
+    direction: rtl;
+}
+
+.starters h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.starters h2 {
+    font-size: 1.1em;
+}
+
+.starters img {
+    margin: 0;
+    height: 7.5em;
+    float: left;
+}
+
+.starters ul {
+    font-size: 0.7em;
+    float: right;
+    display: contents;
+}
+
+.starter-rating {
+    font-size: 5em;
+}
+
+.starters .wow {
+    height: 4em;
+    width: auto;
+    right: 8em;
+    top: 6em;
+    position: absolute;
+}
+
 .review {
     display: grid;
     direction: rtl;
@@ -222,14 +259,44 @@ li {
     .menu h1 {
         font-size: 5em;
     }
+    
+    .starters h1 {
+        font-size: 5em;
+    }
+    
+    .starters h2 {
+        font-size: 1.5em;
+    }
+
+    .starters img {
+        width: 100%;
+        height: auto;
+        float: none;
+    }
+
+    .starters ul {
+        font-size: 1.5em;
+    }
+
+    .starters li {
+        margin-right: 1em;
+    }
+
+    .starters .wow {
+        top: 15.5em;
+    }
 
     .review {
         display: block;
     }
 
+    .review img {
+        display: block
+    }
+
     .review ul {
         font-size: 1.3em;
-        margin: 1em 0;
+        margin: 1em 1em;
     }
 
     .review .btw {
