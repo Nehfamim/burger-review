@@ -374,4 +374,26 @@ li {
         margin-top: 3.3em;
         margin-bottom: 3.3em;
     }
+
+    .guest-review {
+        display: block;
+        padding-bottom: 2.3em;
+    }
+
+    .guest-reviews h1 {
+        font-size: 4em;
+    }
+
+    .guest-review h2 {
+        font-size: 3em;
+        text-align: center;
+    }
+
+    .guest-review div {
+        font-size: 1em;
+    }
+
+    .guest-review q {
+        font-size: 1.2em;
+    }
 }
