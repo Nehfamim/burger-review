@@ -221,27 +221,21 @@ li {
 }
 
 .sauces {
-    display: grid;
     direction: rtl;
-    grid-template-rows: auto auto;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
 }
 
 .sauces h1 {
     font-size: 1.7em;
-    grid-column: 1 / 3;
 }
 
 .sauces img {
-    grid-column: 2;
     margin: 0;
-    height: 60%;
+    height: 15em;
+    float: inline-end;
 }
 
 .sauces .rating {
-    grid-column: 1 / 3;
-    grid-row: 3;
+    font-size: 4em;
 }
 
 @media screen and (orientation: portrait) {
@@ -347,5 +341,18 @@ li {
         font-size: 0.6em;
         margin-top: 3.3em;
         margin-bottom: 3.3em;
+    }
+
+    .sauces img {
+        height: 30em;
+        float: none;
+    }
+
+    .sauces ul {
+        font-size: 1.5em;
+    }
+
+    .sauces li {
+        margin-right: 1em;
     }
 }
