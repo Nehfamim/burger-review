@@ -1,3 +1,7 @@
+li {
+    text-align: right;
+}
+
 .locke img {
     height: 8em;
     margin-bottom: 0;
@@ -59,7 +63,6 @@
 }
 
 .arrival li {
-    text-align: right;
     margin-right: -4em;
 }
 
@@ -70,6 +73,151 @@
 
 .menu img {
     height: 90vh;
+}
+
+.starters {
+    direction: rtl;
+}
+
+.starters h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.starters h2 {
+    font-size: 1.1em;
+}
+
+.starters img {
+    margin: 0;
+    height: 7.5em;
+    float: left;
+}
+
+.starters ul {
+    font-size: 0.7em;
+    float: right;
+    display: contents;
+}
+
+.starter-rating {
+    font-size: 5em;
+}
+
+.starters .wow {
+    height: 4em;
+    width: auto;
+    right: 8em;
+    top: 6em;
+    position: absolute;
+}
+
+.review {
+    display: grid;
+    direction: rtl;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+.review h1 {
+    font-size: 1.7em;
+    grid-column: 1 / 3;
+}
+
+.review img {
+    grid-column: 2;
+    margin: 0;
+}
+
+.review ul {
+    grid-column: 1;
+    grid-row: 2 / 4;
+    font-size: 0.8em;
+}
+
+.review .btw {
+    display: grid;
+    grid-column: 1;
+    grid-row: 3;
+    grid-template-columns: auto auto;
+    font-size: 0.6em;
+    padding-top: 1em;
+}
+
+.review .btw .arrow {
+    font-size: 3em;
+}
+
+.review .btw .arrow-mobile {
+    display: none
+}
+
+.heat-rating {
+    background-image: url(../assets/heat-score.png);
+    margin-top: 0.6em;
+    width: 500px;
+    height: 250px;
+    position: relative;
+}
+
+.heat-rating div {
+    position: absolute;
+    bottom: -0.8em;
+    width: 50%;
+}
+
+.heat-rating :nth-child(-n+3) {
+    left: 0.4em;
+    transform-origin: right;
+}
+
+.heat-rating :nth-child(-n+6):nth-child(n+4) {
+    right: 0.4em;
+    text-align: right;
+    transform-origin: left;
+}
+
+.heat-rating :nth-child(1) {
+    transform: rotate(15deg);
+}
+
+.heat-rating :nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.heat-rating :nth-child(3) {
+    transform: rotate(75deg);
+}
+
+.heat-rating :nth-child(4) {
+    transform: rotate(-75deg);
+}
+
+.heat-rating :nth-child(5) {
+    transform: rotate(-45deg);
+}
+
+.heat-rating :nth-child(6) {
+    transform: rotate(-15deg);
+    font-size: 0.8em;
+}
+
+.heat-rating img {
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+    transform-origin: bottom;
+}
+
+.heat-rating .fragment.arrow {
+    transform: rotate(-89.6deg);
+}
+
+.heat-rating .fragment.arrow.visible {
+    transform: rotate(-25.6deg);
 }
 
 @media screen and (orientation: portrait) {
@@ -110,5 +258,70 @@
 
     .menu h1 {
         font-size: 5em;
+    }
+    
+    .starters h1 {
+        font-size: 5em;
+    }
+    
+    .starters h2 {
+        font-size: 1.5em;
+    }
+
+    .starters img {
+        width: 100%;
+        height: auto;
+        float: none;
+    }
+
+    .starters ul {
+        font-size: 1.5em;
+    }
+
+    .starters li {
+        margin-right: 1em;
+    }
+
+    .starters .wow {
+        top: 15.5em;
+    }
+
+    .review {
+        display: block;
+    }
+
+    .review img {
+        display: block
+    }
+
+    .review ul {
+        font-size: 1.3em;
+        margin: 1em 1em;
+    }
+
+    .review .btw {
+        font-size: 1.3em;
+        display: block;
+        padding: 0;
+    }
+
+    .review .btw .arrow {
+        display: none;
+    }
+
+    .review .btw .arrow-mobile {
+        display: block;
+        font-size: 1.8em;
+    }
+
+    .review .btw br {
+        display: none;
+    }
+
+    .heat-rating {
+        transform: scale(1.5);
+        font-size: 0.6em;
+        margin-top: 3.3em;
+        margin-bottom: 3.3em;
     }
 }
