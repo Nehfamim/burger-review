@@ -270,6 +270,28 @@ li {
     grid-column: 2;
 }
 
+.sauces {
+    direction: rtl;
+}
+
+.sauces h1 {
+    font-size: 1.7em;
+}
+
+.sauces img {
+    margin: 0;
+    height: 15em;
+    float: inline-end;
+}
+
+.sauces .rating {
+    font-size: 4em;
+}
+
+.sauces ul {
+    width: 60%;
+}
+
 @media screen and (orientation: portrait) {
     .locke {
         font-size: 1.5em;
@@ -288,12 +310,12 @@ li {
     .intro-guest h1 {
         font-size: min(33vw, var(--r-heading1-size));
     }
-    
+
     .intro-guest h2 {
         text-align: center;
         margin-bottom: 0.3em;
     }
-    
+
     .arrival {
         font-size: 1.6em;
     }
@@ -309,11 +331,11 @@ li {
     .menu h1 {
         font-size: 5em;
     }
-    
+
     .starters h1 {
         font-size: 5em;
     }
-    
+
     .starters h2 {
         font-size: 1.5em;
     }
@@ -395,5 +417,23 @@ li {
 
     .guest-review q {
         font-size: 1.2em;
+    }
+
+    .sauces h1 {
+        font-size: 3.5em;
+    }
+
+    .sauces img {
+        height: 30em;
+        float: none;
+    }
+
+    .sauces ul {
+        font-size: 1.5em;
+        width: initial;
+    }
+
+    .sauces li {
+        margin-right: 1em;
     }
 }
