@@ -62,8 +62,17 @@ li {
     direction: rtl;
 }
 
+.arrival h1 {
+    font-size: 2em;
+}
+
 .arrival li {
+    font-size: 0.8em;
     margin-right: -4em;
+}
+
+.arrival div {
+    height: 10em;
 }
 
 .menu h1 {
@@ -399,11 +408,11 @@ li li, .toto-story ul ul {
     }
 
     .arrival {
-        font-size: 1.6em;
+        font-size: 2em;
     }
 
     .arrival h1 {
-        font-size: 3em;
+        font-size: 2em;
     }
 
     .arrival li {
