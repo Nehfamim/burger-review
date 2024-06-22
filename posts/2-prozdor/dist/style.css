@@ -288,6 +288,10 @@ li {
     font-size: 4em;
 }
 
+.sauces ul {
+    width: 60%;
+}
+
 @media screen and (orientation: portrait) {
     .locke {
         font-size: 1.5em;
@@ -415,6 +419,10 @@ li {
         font-size: 1.2em;
     }
 
+    .sauces h1 {
+        font-size: 3.5em;
+    }
+
     .sauces img {
         height: 30em;
         float: none;
@@ -422,6 +430,7 @@ li {
 
     .sauces ul {
         font-size: 1.5em;
+        width: initial;
     }
 
     .sauces li {
