@@ -366,7 +366,7 @@ li li, .toto-story ul ul {
 
 @font-face {
     font-family: champagne;
-    src: url("assets/cac_champagne.ttf");
+    src: url("../assets/cac_champagne.ttf");
 }
 
 .fin {
