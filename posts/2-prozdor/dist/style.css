@@ -364,6 +364,16 @@ li li, .toto-story ul ul {
     font-size: 0.8em;
 }
 
+@font-face {
+    font-family: champagne;
+    src: url("assets/cac_champagne.ttf");
+}
+
+.fin {
+    font-family: champagne;
+    font-size: 6em;
+}
+
 @media screen and (orientation: portrait) {
     .locke {
         font-size: 1.5em;
