@@ -364,6 +364,16 @@ li li, .toto-story ul ul {
     font-size: 0.8em;
 }
 
+@font-face {
+    font-family: champagne;
+    src: url("assets/cac_champagne.ttf");
+}
+
+.fin {
+    font-family: champagne;
+    font-size: 6em;
+}
+
 @media screen and (orientation: portrait) {
     .locke {
         font-size: 1.5em;
@@ -435,7 +445,9 @@ li li, .toto-story ul ul {
     }
 
     .review img {
-        display: block
+        display: block;
+        max-height: 50vh;
+        margin: auto;
     }
 
     .review ul {
@@ -475,11 +487,11 @@ li li, .toto-story ul ul {
     }
 
     .guest-reviews h1 {
-        font-size: 4em;
+        font-size: 3em;
     }
 
     .guest-review h2 {
-        font-size: 3em;
+        font-size: 2.2em;
         text-align: center;
     }
 
