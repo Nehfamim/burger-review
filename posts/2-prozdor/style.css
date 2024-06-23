@@ -163,7 +163,7 @@ li {
 }
 
 .heat-rating {
-    background-image: url(../assets/heat-score.png);
+    background-image: url(./assets/heat-score.png);
     margin-top: 0.6em;
     width: 500px;
     height: 250px;
@@ -375,7 +375,7 @@ li li, .toto-story ul ul {
 
 @font-face {
     font-family: champagne;
-    src: url("../assets/cac_champagne.ttf");
+    src: url(./assets/cac_champagne.ttf);
 }
 
 .fin {
