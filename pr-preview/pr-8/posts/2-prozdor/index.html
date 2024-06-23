@@ -7,13 +7,10 @@
 		<link rel="icon" href="../../assets/favicon.ico"/>
     	<title>ביקורת נחפמים - פרוזדור</title>
 
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/theme/league.css">
-		<link rel="stylesheet" href="dist/style.css">
-
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="reveal.css">
+		<link rel="stylesheet" href="reset.css">
+		<link rel="stylesheet" href="league.css">
+		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
 		<div class="reveal">
@@ -212,7 +209,7 @@
 							<li class="fragment">להקה</li>
 							<li class="fragment">יש להם שני שירים</li>
 							<ul>
-								<li class="fragment">השיר הראשון<audio src="./assets/toto-1.mp3" loop data-autoplay></audio></li>
+								<li class="fragment">השיר הראשון<audio src="./assets/toto-1.mp3" data-autoplay></audio></li>
 								<br/><br/>
 							</ul>							
 						</ul>
@@ -227,7 +224,7 @@
 							<li>יש להם שני שירים</li>
 							<ul>
 								<li>השיר הראשון</li>
-								<li>השיר השני<audio src="./assets/toto-2.mp3" loop data-autoplay></audio></li>	
+								<li>השיר השני<audio src="./assets/toto-2.mp3" data-autoplay></audio></li>	
 							</ul>							
 						</ul>
 						<div><img src="./assets/scary-toto.jpg"></div>
@@ -288,20 +285,7 @@
 			</div>
 		</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
-
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
+		<script src="reveal.js"></script>
+		<script>Reveal.initialize()</script>
 	</body>
 </html>
