@@ -1,0 +1,579 @@
+li {
+    text-align: right;
+}
+
+.locke img {
+    height: 8em;
+    margin-bottom: 0;
+}
+
+.locke q {
+    white-space: pre-line;
+    font-size: 0.8em;
+    text-align: left;
+}
+
+.locke q::before, .locke q::after {
+    content: ""
+}
+
+.locke .quoted {
+    margin-top: 0.5em;
+}
+
+.intro-guest {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    text-align: right;
+    direction: rtl;
+}
+
+.intro-guest h1 {
+    grid-column: 1 / 3;
+    text-align: center;
+}
+
+.intro-guest h2 {
+    margin-bottom: 0;
+}
+
+.intro-guest ul {
+    text-align: inherit;
+    display: block;
+    margin: 0;
+    margin-inline-start: 1em;
+}
+
+.intro-guest img {
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
+}
+
+.intro-guest q {
+    display: block;
+    margin-block-start: 1.0em;
+    font-size: 1.2em;
+}
+
+.arrival {
+    direction: rtl;
+}
+
+.arrival h1 {
+    font-size: 2em;
+}
+
+.arrival li {
+    font-size: 0.8em;
+    margin-right: -4em;
+}
+
+.arrival div {
+    height: 10em;
+}
+
+.menu h1 {
+    font-size: 2em;
+    margin-bottom: 0;
+}
+
+.menu img {
+    height: 90vh;
+}
+
+.starters {
+    direction: rtl;
+}
+
+.starters h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.starters h2 {
+    font-size: 1.1em;
+}
+
+.starters img {
+    margin: 0;
+    height: 7.5em;
+    float: left;
+}
+
+.starters ul {
+    font-size: 0.7em;
+    float: right;
+    display: contents;
+}
+
+.starter-rating {
+    font-size: 5em;
+}
+
+.starters .wow {
+    height: 4em;
+    width: auto;
+    right: 8em;
+    top: 6em;
+    position: absolute;
+}
+
+.review {
+    display: grid;
+    direction: rtl;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+.review h1 {
+    font-size: 1.7em;
+    grid-column: 1 / 3;
+}
+
+.review img {
+    grid-column: 2;
+    margin: 0;
+}
+
+.review ul {
+    grid-column: 1;
+    grid-row: 2 / 4;
+    font-size: 0.8em;
+}
+
+.review .btw {
+    display: grid;
+    grid-column: 1;
+    grid-row: 3;
+    grid-template-columns: auto auto;
+    font-size: 0.6em;
+    padding-top: 1em;
+}
+
+.review .btw .arrow {
+    font-size: 3em;
+}
+
+.review .btw .arrow-mobile {
+    display: none
+}
+
+.heat-rating {
+    background-image: url(./assets/heat-score.png);
+    margin-top: 0.6em;
+    width: 500px;
+    height: 250px;
+    position: relative;
+}
+
+.heat-rating div {
+    position: absolute;
+    bottom: -0.8em;
+    width: 50%;
+}
+
+.heat-rating :nth-child(-n+3) {
+    left: 0.4em;
+    transform-origin: right;
+}
+
+.heat-rating :nth-child(-n+6):nth-child(n+4) {
+    right: 0.4em;
+    text-align: right;
+    transform-origin: left;
+}
+
+.heat-rating :nth-child(1) {
+    transform: rotate(15deg);
+}
+
+.heat-rating :nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.heat-rating :nth-child(3) {
+    transform: rotate(75deg);
+}
+
+.heat-rating :nth-child(4) {
+    transform: rotate(-75deg);
+}
+
+.heat-rating :nth-child(5) {
+    transform: rotate(-45deg);
+}
+
+.heat-rating :nth-child(6) {
+    transform: rotate(-15deg);
+    font-size: 0.8em;
+}
+
+.heat-rating img {
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+    transform-origin: bottom;
+}
+
+.heat-rating .fragment.arrow {
+    transform: rotate(-89.6deg);
+}
+
+.heat-rating .fragment.arrow.visible {
+    transform: rotate(-25.6deg);
+}
+
+.guest-reviews {
+    direction: rtl;
+}
+
+.guest-reviews h1 {
+    font-size: 2em;
+}
+
+.guest-review {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+}
+
+.toto-story {
+    direction: rtl;
+    font-size: 0.8em;
+}
+
+.guest-review h2 {
+    font-size: 1.6em;
+    text-align: right;
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.guest-review.flipped h2 {
+    grid-column: 2;
+}
+
+.guest-review div {
+    float: left;
+    grid-row: 1 / 3;
+    grid-column: 2;
+    font-size: 0.5em;
+}
+
+.guest-review div img {
+    margin-bottom: 0.2em;
+}
+
+.guest-review.flipped div {
+    grid-column: 1;
+}
+
+.guest-review q {
+    font-size: 0.8em;
+    text-align: right;
+    padding-left: 0.3em;
+}
+
+.guest-review.flipped q {
+    grid-column: 2;
+}
+
+.sauces {
+    direction: rtl;
+}
+
+.sauces h1 {
+    font-size: 1.7em;
+}
+
+.sauces img {
+    margin: 0;
+    height: 15em;
+    float: inline-end;
+}
+
+.sauces .rating {
+    font-size: 4em;
+}
+
+.sauces ul {
+    width: 60%;
+}
+
+.toto-story h1 {
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+
+.toto-story ul {
+    grid-row: 2;
+    grid-column: 1;
+}
+
+li li, .toto-story ul ul {
+    margin-right: 3em;
+}
+
+.toto-story div {
+    grid-row: 2;
+    grid-column: 2;
+    float: left;
+}
+
+.toto-story div img {
+    height: 15em;
+}
+
+.toto-comparison {
+    display: grid;
+    direction: rtl;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+}
+
+.toto-comparison h1 {
+    grid-column: 1 / 3;
+    font-size: 2.4em;
+}
+
+.toto-comparison table th {
+    text-align: center;
+}
+
+.toto-comparison table td {
+    text-align: right;
+}
+
+.toto-signs {
+    width: 100%;
+    display: flex;
+}
+
+.toto-signs img {
+    width: 50%;
+    padding-left: 0.5em;
+}
+
+.toto-for-us {
+    direction: rtl;
+}
+
+.toto-for-us h1 {
+    font-size: 1.6em;
+}
+
+.toto-for-us > ul > li {
+    font-size: 0.8em;
+}
+
+@font-face {
+    font-family: champagne;
+    src: url(./assets/cac_champagne.ttf);
+}
+
+.fin {
+    font-family: champagne;
+    font-size: 6em;
+}
+
+@media screen and (orientation: portrait) {
+    .locke {
+        font-size: 1.5em;
+    }
+
+    .locke img {
+        width: 70%;
+        height: auto;
+    }
+
+    .intro-guest {
+        font-size: 1.3em;
+        display: initial;
+    }
+
+    .intro-guest h1 {
+        font-size: min(33vw, var(--r-heading1-size));
+    }
+
+    .intro-guest h2 {
+        text-align: center;
+        margin-bottom: 0.3em;
+    }
+
+    .arrival {
+        font-size: 2em;
+    }
+
+    .arrival h1 {
+        font-size: 2em;
+    }
+
+    .arrival li {
+        margin-right: 0;
+    }
+
+    .menu h1 {
+        font-size: 5em;
+    }
+
+    .starters h1 {
+        font-size: 5em;
+    }
+
+    .starters h2 {
+        font-size: 1.5em;
+    }
+
+    .starters img {
+        width: 100%;
+        height: auto;
+        float: none;
+    }
+
+    .starters ul {
+        font-size: 1.5em;
+    }
+
+    .starters li {
+        margin-right: 1em;
+    }
+
+    .starters .wow {
+        top: 15.5em;
+    }
+
+    .review {
+        display: block;
+    }
+
+    .review img {
+        display: block;
+        max-height: 50vh;
+        margin: auto;
+    }
+
+    .review ul {
+        font-size: 1.3em;
+        margin: 1em 1em;
+    }
+
+    .review .btw {
+        font-size: 1.3em;
+        display: block;
+        padding: 0;
+    }
+
+    .review .btw .arrow {
+        display: none;
+    }
+
+    .review .btw .arrow-mobile {
+        display: block;
+        font-size: 1.8em;
+    }
+
+    .review .btw br {
+        display: none;
+    }
+
+    .heat-rating {
+        transform: scale(1.5);
+        font-size: 0.6em;
+        margin-top: 3.3em;
+        margin-bottom: 3.3em;
+    }
+
+    .guest-review {
+        display: block;
+        padding-bottom: 2.3em;
+    }
+
+    .guest-reviews h1 {
+        font-size: 3em;
+    }
+
+    .guest-review h2 {
+        font-size: 2.2em;
+        text-align: center;
+    }
+
+    .guest-review div {
+        font-size: 1em;
+    }
+
+    .guest-review q {
+        font-size: 1.2em;
+    }
+
+    .sauces h1 {
+        font-size: 3.5em;
+    }
+
+    .sauces img {
+        height: 30em;
+        float: none;
+    }
+
+    .sauces ul {
+        font-size: 1.5em;
+        width: initial;
+    }
+
+    .sauces li {
+        margin-right: 1em;
+    }
+
+    .toto-story {
+        display: initial;
+    }
+
+    .toto-story h1 {
+        font-size: 6em;
+    }
+
+    .toto-story div {
+        float: none;
+    }
+
+    .toto-story div img {
+        width: 100%;
+        height: auto;
+    }
+
+    .toto-story li {
+        font-size: 2em;
+    }
+    
+    .toto-comparison h1 {
+        font-size: 4em;
+    }
+
+    .toto-comparison table {
+        font-size: 1.5em;
+    }
+
+    .toto-for-us h1 {
+        font-size: 3em;
+    }
+
+    .toto-for-us > ul > li {
+        font-size: 1.4em;
+        margin-right: 0.6em;
+    }
+
+    .toto-for-us img {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .toto-for-us div {
+        display: block;
+    }
+}
