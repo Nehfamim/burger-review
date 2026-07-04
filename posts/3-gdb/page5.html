@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ביקורת נחפמים - GDB - Page 5</title>
+    <link rel="icon" href="../../assets/favicon.ico" />
+    <link rel="stylesheet" href="terminal-page.css" />
+    <style>
+        .image-slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 16px auto;
+            border: 1px solid #1e293b;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            line-height: 0;
+            direction: ltr;
+        }
+        .image-slider-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .image-slider-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            clip-path: inset(0 50% 0 0);
+        }
+        .image-slider-range {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            appearance: none;
+            -webkit-appearance: none;
+            margin: 0;
+            outline: none;
+            z-index: 10;
+        }
+        .image-slider-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 4px;
+            height: 500px;
+            background: white;
+            cursor: ew-resize;
+            box-shadow: 0 0 4px rgba(0,0,0,0.5);
+        }
+        .image-slider-range::-moz-range-thumb {
+            width: 4px;
+            height: 500px;
+            background: white;
+            cursor: ew-resize;
+            box-shadow: 0 0 4px rgba(0,0,0,0.5);
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="english">.fini_array</h1>
+
+        <p>
+            שבעים הפעם באמת, יצאנו מהמסעדה ונתקלנו במפגן מחאתי במרכז הרחוב.
+        </p>
+
+        <div class="preamble">
+            <img class="story-image" src="assets/mcdonald_protest.jpg" alt="McDonalds Protest" />
+            <q>הפגנה זועמת במיוחד</q>
+        </div>
+
+        <p>
+            יצאנו למסע שורשים ברחבי אבן גבירול, על מנת למצוא אתרים עתיקים של חבורת הנחפמים הפנומנלית.<br>
+            התחלנו בחיפושים אחר המקום בו צולמה התמונה הנצחית הידועה בשמה <i>"לשחרר את מייסון"</i>.<br>
+            באמצעות כישורי איתור מרשימים ואינטואיציה של חברי הנחפמים המופלאים, איתרנו את האתר הלא נכון.
+        </p>
+
+        <div class="preamble">
+            <img class="story-image" src="assets/mason_fake.jpg" alt="Fake Mason" />
+            <q>מביך...</q>
+        </div>
+
+        <p>
+            חיש מהר, חברי חבורת הנחפמים המונומנטלית התעשתו על עצמם, והובילו אותנו הפעם לנקודת הציון הנכונה. נדהמנו לגלות שמייסון עדיין לא שוחרר.
+        </p>
+
+
+
+        <div class="preamble">
+            <div class="image-slider-container">
+                <img src="assets/original_free_mason.jpg" class="image-slider-img" alt="Original Mason">
+                <img src="assets/free_mason.jpg" class="image-slider-img image-slider-overlay" alt="New Mason">
+                <input type="range" min="0" max="100" value="50" class="image-slider-range" oninput="this.previousElementSibling.style.clipPath = `inset(0 ${100 - this.value}% 0 0)`">
+            </div>
+            <q>גררו את הווילון על מנת להשוות בין התיעודים</q>
+        </div>
+
+
+
+        <p>
+            כעת יצאנו בחיפוש אחר נקודת ציון אייקונית, המקום בו צולמה התמונה הידועה בתור <i>"התמונה עם הגבינה הצהובה"</i>.<br>
+            הסתובבנו ברחבי אבן גבירול בניסיון למצוא את המקום. הלכנו הלוך ושוב ללא כל הצלחה ואף ניסינו להפעיל יכולות גאו-לוקציה מתקדמות, אך שוב מאמצנו לא נשאו פרי. לירון היה משוכנע כי התמונה צולמה במעבר רחוב מסויים, אך אתר הבנייה שהיה שם אמר אחרת.<br>
+            לאחר כמה מאמצים נוספים, הצלחנו לאכן את המיקום והזווית המדוייקים מהם צולמה התמונה, ובאמצעות חזרה בזמן, אימתנו את הטענה של לירון שאתר הבנייה היה בעברו הבניין המדובר.<br>
+            בכל מקרה, עשינו כמיטב יכולתנו כדי לשחזר את התמונה.<br>
+            לצורך המשימה, שחר בחר לדפוק את הברך שלו בחוזקה בעמוד הסמוך. שאר החבורה לא לגמרי הבינה איך זה תורם למטרה, אך העריכה את ההקרבה שהוא הפגין.<br>
+            כעת בחרנו את המיקום האידאלי לגבינה הצהובה, ועבדנו על הרכבת הקומפוזציה המיטבית.
+        </p>
+
+        <div class="preamble">
+            <img class="story-image" src="assets/yellow_cheese_placement.jpg" alt="Yellow Cheese Placement" />
+            <q>שלב מיקום הגבינה</q>
+        </div>
+
+        <div class="preamble">
+            <img class="story-image" src="assets/camera_man.jpg" alt="Camera Man" />
+            <q>שלב הקומפוזיציה</q>
+        </div>
+
+        <div class="preamble">
+            <img class="story-image" src="assets/yellow_cheese.jpg" alt="Yellow Cheese" />
+            <q>תוצר סופי</q>
+        </div>
+
+        <p>
+            מרוצים מההישגים, ועייפים מהמסע, החבורה נפרדה וכל איש המשיך לדרכו.
+        </p>
+        <div class="bottom-note">ביקורת נחפמים • GDB Edition</div>
+    </div>
+</body>
+</html>

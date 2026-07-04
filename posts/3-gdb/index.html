@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GDB Web Debugger</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.35.2/js/jquery.terminal.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.35.2/css/jquery.terminal.min.css"
+        rel="stylesheet" />
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            overflow: hidden;
+        }
+
+        #browser-container {
+            flex: 3;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 2px solid #334155;
+            background: #ffffff;
+        }
+
+        #address-bar {
+            background-color: #1e293b;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+            color: #cbd5e1;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        #address-bar span {
+            margin-right: 10px;
+        }
+
+        #url-input {
+            flex: 1;
+            background: #0f172a;
+            border: 1px solid #334155;
+            color: #f8fafc;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        #content-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: none;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            overflow-y: auto;
+        }
+
+        #browser-content-wrapper {
+            flex: 1;
+            position: relative;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #tui-header {
+            background: #1e293b;
+            border-bottom: 2px solid #22c55e;
+            padding: 8px 16px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #22c55e;
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 11;
+            flex-shrink: 0;
+        }
+
+        #tui-header.active {
+            display: flex;
+        }
+
+        #tui-header.theme-red {
+            border-bottom-color: #ef4444;
+            color: #ef4444;
+        }
+
+        #tui-header .mode {
+            background: #22c55e;
+            color: #0a0f1e;
+            padding: 2px 8px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        #tui-header.theme-red .mode {
+            background: #ef4444;
+        }
+
+        #option-overlay-wrapper {
+            position: relative;
+            flex: 1;
+            min-height: 0;
+        }
+
+        #option-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            border: none;
+            background: #0a0f1e;
+            display: none;
+            animation: option-slide-in 0.4s ease-out;
+        }
+
+        #option-overlay.active {
+            display: block;
+        }
+
+        @keyframes option-slide-in {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #terminal-container {
+            flex: 1;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            background-color: #000;
+        }
+
+        #terminal {
+            flex: 1;
+            height: 0;
+            --color: #e5e5e5;
+            --background: #000;
+            --size: 1.1;
+            font-family: 'Courier New', monospace;
+        }
+
+        .gdb-header {
+            background: #1e293b;
+            color: #cbd5e1;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 12px;
+            border-bottom: 1px solid #334155;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="browser-container">
+        <div id="address-bar">
+            <span>🔒</span>
+            <input type="text" id="url-input" value="" placeholder="not running" readonly>
+        </div>
+        <div id="browser-content-wrapper">
+            <div id="tui-header">
+                <span>[ TUI Option: <span class="mode" id="tui-option-name"></span> ]</span>
+                <span>type "choose off" to close</span>
+            </div>
+            <div id="option-overlay-wrapper">
+                <iframe id="content-frame" src="page0.html"></iframe>
+                <iframe id="option-overlay"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="terminal-container">
+        <div class="gdb-header">GNU gdb (GDB) 0x1C - Web Debugger Attached</div>
+        <div id="terminal"></div>
+    </div>
+
+    <script>
+        const pages = [
+            { file: 'page1.html', url: 'http://localhost:3000/home.html', func: 'main', line: 12 },
+            { file: 'page2.html', url: 'http://localhost:3000/about.html', func: 'load_about', line: 45 },
+            { file: 'page3.html', url: 'http://localhost:3000/menu.html', func: 'render_menu', line: 88 },
+            { file: 'page4.html', url: 'http://localhost:3000/reviews.html', func: 'fetch_reviews', line: 112 },
+            { file: 'page5.html', url: 'http://localhost:3000/contact.html', func: 'submit_form', line: 204 }
+        ];
+
+        let currentPageIndex = parseInt(sessionStorage.getItem('gdb_page_index')) || 0;
+        let isPaused = sessionStorage.getItem('gdb_is_paused') === 'true';
+        let termInstance = null;
+
+        function syncHeight() {
+            let height = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+            document.body.style.height = height + 'px';
+            if (termInstance) {
+                try { 
+                    termInstance.resize(); 
+                    termInstance.scroll_to_bottom();
+                } catch (e) { }
+            }
+            // Ensure the window itself doesn't scroll natively, keeping our fixed layout
+            if (window.scrollY > 0) {
+                window.scrollTo(0, 0);
+            }
+        }
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener('resize', syncHeight);
+            window.visualViewport.addEventListener('scroll', syncHeight);
+        }
+        window.addEventListener('resize', syncHeight);
+        
+        // Initial sync
+        setTimeout(syncHeight, 100);
+
+        function dismissOptions() {
+            $('#option-overlay').removeClass('active').attr('src', '');
+            $('#tui-header').removeClass('active theme-red');
+        }
+
+        function loadPage(index, term) {
+            const t = term || termInstance;
+            // Dismiss any active option overlay when navigating
+            dismissOptions();
+
+            if (index >= pages.length) {
+                t.echo("Program exited normally.");
+                isPaused = false;
+                sessionStorage.setItem('gdb_is_paused', 'false');
+                sessionStorage.setItem('gdb_page_index', index);
+                return;
+            }
+
+            const page = pages[index];
+            $('#url-input').val(page.url);
+            $('#content-frame').attr('src', page.file);
+
+            t.echo(`\nBreakpoint ${index + 1}, ${page.func} () at ${page.file}:${page.line}`);
+            t.echo(`${page.line}\t    render_page("${page.url}");`);
+            isPaused = true;
+            sessionStorage.setItem('gdb_is_paused', 'true');
+            sessionStorage.setItem('gdb_page_index', index);
+        }
+
+        $(document).ready(function () {
+            const cmd_next = function () {
+                if (!isPaused) {
+                    this.echo("The program is not being run.");
+                    return;
+                }
+
+                if (pages[currentPageIndex] && pages[currentPageIndex].file === 'page2.html') {
+                    const activeOption = $('#tui-option-name').text().toLowerCase();
+                    if (!$('#option-overlay').hasClass('active') || activeOption !== 'itay') {
+                        this.echo("Cannot continue. The conflict isn't resolved. Choose your option!");
+                        return;
+                    }
+                }
+
+                this.echo("Continuing.");
+                currentPageIndex++;
+                loadPage(currentPageIndex, this);
+            };
+
+            const cmd_run = function () {
+                this.echo("Starting program: /usr/bin/web-server");
+                currentPageIndex = 0;
+                loadPage(currentPageIndex, this);
+            };
+
+            const cmd_quit = function () {
+                this.echo("A debugging session is active.\n\n\tInferior 1 [process 1337] will be killed.\n\nQuit anyway? (y or n) ");
+                this.echo("Exiting...");
+            };
+
+            const cmd_back = function () {
+                if (!isPaused) {
+                    this.echo("The program is not being run.");
+                    return;
+                }
+                if (currentPageIndex > 0) {
+                    this.echo("Stepping backwards.");
+                    currentPageIndex--;
+                    loadPage(currentPageIndex, this);
+                } else {
+                    this.echo("Already at the beginning.");
+                }
+            };
+
+            termInstance = $('#terminal').terminal({
+                next: cmd_next,
+                n: cmd_next,
+                continue: cmd_next,
+                c: cmd_next,
+                run: cmd_run,
+                r: cmd_run,
+                back: cmd_back,
+                b: cmd_back,
+                choose: function (arg) {
+                    if (!arg || arg === 'off') {
+                        dismissOptions();
+                        this.echo('TUI option disabled.');
+                        return;
+                    }
+                    // Optionss is only available on page2.html
+                    const currentFile = pages[currentPageIndex] && pages[currentPageIndex].file;
+                    if (currentFile !== 'page2.html') {
+                        this.echo('Choose is only available on the "About" page (page2.html).');
+                        return;
+                    }
+                    const options = {
+                        'itay': 'itay.html',
+                        'or': 'or.html'
+                    };
+                    if (options[arg]) {
+                        $('#option-overlay').attr('src', options[arg]).addClass('active');
+                        $('#tui-option-name').text(arg.toUpperCase());
+                        $('#tui-header').addClass('active');
+                        if (arg === 'or') {
+                            $('#tui-header').addClass('theme-red');
+                        } else {
+                            $('#tui-header').removeClass('theme-red');
+                        }
+                        this.echo(`TUI option set to: ${arg}`);
+                    } else {
+                        this.echo(`Unknown option: "${arg}". Available options: itay, or`);
+                        this.echo('Use "choose off" to disable the current option.');
+                    }
+                },
+                help: function (...args) {
+                    this.echo("אא\"ת");
+                },
+                quit: cmd_quit,
+                q: cmd_quit
+            }, {
+                greetings: "Reading symbols from web-server...\n(No debugging symbols found in web-server)",
+                prompt: '(gdb) ',
+                checkArity: false
+            });
+
+            // Restore UI state on load
+            if (isPaused && pages[currentPageIndex]) {
+                const page = pages[currentPageIndex];
+                $('#url-input').val(page.url);
+                // The iframe might have preserved its state, but we ensure it matches the index
+                $('#content-frame').attr('src', page.file);
+            }
+
+            // Fix for mobile double-tap keyboard issue
+            $('#terminal-container').on('click touchend', function() {
+                if (termInstance) {
+                    termInstance.focus();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
