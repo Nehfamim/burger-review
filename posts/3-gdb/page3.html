@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ביקורת נחפמים - GDB - Page 3</title>
+    <link rel="icon" href="../../assets/favicon.ico" />
+    <link rel="stylesheet" href="terminal-page.css" />
+    <style>
+        .ruff-animation {
+            position: relative;
+            height: 3em;
+            margin: 1em 0;
+        }
+
+        .animation-button {
+            font-size: 0.8em;
+            align-items: center;
+            background-color: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: .25rem;
+            box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+            box-sizing: border-box;
+            color: rgba(0, 0, 0, 0.85);
+            cursor: pointer;
+            display: inline-flex;
+            font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-weight: 600;
+            justify-content: center;
+            line-height: 1.25;
+            margin: 0 0 1em 0;
+            min-height: 2.5rem;
+            padding: calc(.275rem - 1px) calc(0.5rem - 1px);
+            position: relative;
+            text-decoration: none;
+            transition: all 250ms;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            vertical-align: baseline;
+            width: auto;
+        }
+
+        .animation-button:hover,
+        .animation-button:focus {
+          border-color: rgba(0, 0, 0, 0.3);
+          box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+          color: rgba(0, 0, 0, 0.65);
+        }
+
+        @keyframes ruff-move-right {
+            0% { left: 0; rotate: 0deg; }
+            15% { left: 15%; rotate: 54deg; }
+            30% { left: 15%; rotate: 54deg; } /* Stuck */
+            45% { left: 40%; rotate: 144deg; }
+            60% { left: 40%; rotate: 144deg; } /* Stuck */
+            75% { left: 75%; rotate: 270deg; }
+            85% { left: 75%; rotate: 270deg; } /* Stuck */
+            100% { left: calc(100% - 3em); rotate: 360deg; }
+        }
+
+        @keyframes ruff-move-left {
+            0% { left: calc(100% - 3em); rotate: 360deg; }
+            15% { left: 85%; rotate: 306deg; }
+            30% { left: 85%; rotate: 306deg; } /* Stuck */
+            45% { left: 60%; rotate: 216deg; }
+            60% { left: 60%; rotate: 216deg; } /* Stuck */
+            75% { left: 25%; rotate: 90deg; }
+            85% { left: 25%; rotate: 90deg; } /* Stuck */
+            100% { left: 0; rotate: 0deg; }
+        }
+
+        .ruff-square {
+            width: 3em;
+            height: 3em;
+            background-color: gray;
+            position: absolute;
+            border-radius: 0.2em;
+            left: 0;
+            animation: ruff-move-left 2s forwards;
+        }
+
+        .ruff-square[right] {
+            animation: ruff-move-right 2s forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="english">malloc</h1>
+
+        <p>
+            לאחר מאורעות סוערים אלו, באנו אל המנוחה ואל הנחלה והתיישבנו לחכות להזמנה. התחלנו להתפלפל עם אלון ולירון על הא ועל דא וגילינו את האוריג'ין סטורי של חבורת הנחפמים המיתולוגית. בינתיים הגיעו ההמבורגרים אך השיחה על חברינו המשותפים קלחה עד כדי כך שאור שכח לאכול (קורה לו). אלון שהזמין יחד עם מנתו <span dir="ltr">san benedetto</span> בטעם ענבים. ניכר שהבקבוק עמל רבות בטרם הוגש, הואיל והוא היה מכוסה כולו בטיפות זיעה. טיפות אלו הפכו את הבקבוק לחלקלק במיוחד <i>(בקטע טוב)</i>, שכן הוא ברח לאלון מהידיים והפיל את השתייה של לירון.
+        </p>
+
+
+        <div class="preamble">
+            <img class="story-image" src="assets/group_photo.jpg" alt="The Group Photo" />
+            <q>החבורה ברגעים שלפני האוכל</q>
+        </div>
+
+        <p>
+            נעבור למנות:<br>
+            שחר, לב, איתי ואלון - ארוחת GDB קלאסית
+        </p>
+
+        <div class="preamble">
+            <img class="story-image" src="assets/classic_burger.jpg" alt="Classic Burger" />
+            <q>המנה מורכבת מקציצה, חסה, סניקי חלפיניו, גבינת צ'דר וגאודה, איולי שום קונפי, לחמניה עם כיפת שום, אורוגולה.</q>
+        </div>
+
+        <p>
+            אור הזמין את העצם הבלתי מזוהה הבא:
+        </p>
+
+        <div class="preamble">
+            <img class="story-image" src="assets/ors_burger.png" alt="Or's Burger" />
+            <q>כדי להגיע להמבורגר הנ"ל אפשר לעשות מספר מניפולציות על התפריט.</q>
+        </div>
+
+        <p>
+            עקב חוסר המסוגלות שלו לעיכול גלוטן, לירון הזמין עצם בלתי מזוהה אחר, שגם אליו ניתן להגיע דרך מספר מניפולציות על התפריט.
+        </p>
+        <p>
+            רוב החבורה הסכימה שההמבורגר טעים במיוחד אך היו בהמבורגר מספר אלמנטים שנויים במחלוקת.<br>
+            בראש ובראשונה, כיפת השום השחורה והמחוספסת. כמה מחוספסת? במחלקת ה-ד' שלנו פיתחו סימולציה שתמחיש את ההרגשה.
+        </p>
+
+        <button class="animation-button" onclick="document.querySelector('.ruff-square').toggleAttribute('right')">סמלץ חספוס</button>
+        <div class="ruff-animation">
+            <div class="ruff-square" side="true"></div>
+        </div>
+
+        <p>
+            חלק טענו שכיפת השום לא מוסיפה הרבה מלבד לכלוך על הידיים ושלא היה צורך בה, אך מילים אלו מאת א. רן יוכלו בקלות לשנות את דעתכם:<br>
+            <i>"אני מאוד מתחבר לקונספט של לחמניית השום. זה לדעתי מוסיף לחוויה בצורה שלא כל כך מדברים עליה, כי קשה לתמלל את זה. מבלי להכביד על הקציצה עצמה או לשנות את מרקם ההמבורגר כמנה הוליסטית, טיגון הלחמניה בשום מוסיף לחווית האכילה נגיעה שומית בכל ביס וביס, וכך באופן רציף ובלתי אמיד משפר את הטעם של המנה".</i>
+        </p>
+
+        <p>
+            תוך כדי ארוחה, חלק מהחבורה התחילה להרגיש הרגשות משונות בחלל הפה. כאשר שיתפנו בחוויות, לירון העלה חשש שההמבורגרים מגיעים עם חלפיניו מה שיכול להסביר את המאורע.<br>
+            התחלנו לדון ברמת החריפות של ההמבורגר. הנה התוצאות:
+        </p>
+
+        <div style="text-align: center">
+            <img style="max-width: 400px; max-height: 400px" src="assets/heat_score.png" alt="Heat Score" />
+        </div>
+
+        <p>
+            הרץ "n" על מנת להמשיך לעמוד הבא. 
+        </p>
+        <div class="bottom-note">ביקורת נחפמים • GDB Edition</div>
+    </div>
+</body>
+
+</html>
